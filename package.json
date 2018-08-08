@@ -8,13 +8,14 @@
     "react",
     "isomorphic",
     "universal",
-    "critical css",
+    "critical css"
   ],
   "main": "lib/index.js",
   "files": [
     "lib"
   ],
   "scripts": {
+    "build": "",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,5 +31,25 @@
   "bugs": {
     "url": "https://github.com/alleyinteractive/critical-css-style-loader/issues"
   },
-  "homepage": "https://github.com/alleyinteractive/critical-css-style-loader#readme"
+  "homepage": "https://github.com/alleyinteractive/critical-css-style-loader#readme",
+  "engine": {
+    "node": "8",
+    "npm": "6"
+  },
+  "dependencies": {
+    "blueimp-md5": "^2.10.0",
+    "loader-utils": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2"
+  }
 }
