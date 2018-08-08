@@ -10,7 +10,7 @@
     "universal",
     "critical css"
   ],
-  "main": "lib/index.js",
+  "main": "lib/loader.js",
   "files": [
     "lib"
   ],
