@@ -1,0 +1,34 @@
+{
+  "name": "critical-css-style-loader",
+  "version": "1.0.0",
+  "description": "A webpack loader for rendering critical path CSS on the server with utilities to avoid client side style-loader style duplications.",
+  "keywords": [
+    "webpack",
+    "style-loader",
+    "react",
+    "isomorphic",
+    "universal",
+    "critical css",
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alleyinteractive/critical-css-style-loader.git"
+  },
+  "author": "Alley (alley.co)",
+  "contributors": [
+    "Owen Stowe <owen@alley.co> (alley.co)",
+    "Max Eddy <max@alley.co> (alley.co)"
+  ],
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/alleyinteractive/critical-css-style-loader/issues"
+  },
+  "homepage": "https://github.com/alleyinteractive/critical-css-style-loader#readme"
+}
