@@ -1,8 +1,13 @@
-const md5 = require('blueimp-md5');
+import md5 from 'blueimp-md5';
 
-module.exports = function filterCriticalCss(css) {
+/**
+ *
+ * @param css
+ * @returns {*}
+ */
+export default function filterCriticalCss(css) {
   const key = md5(css);
-  const styleRefs = window.__PRELOADED_STYLES__ || {}; // eslint-disable-line no-underscore-dangle
+  const styleRefs = window.__CRITICAL_CSS_STYLE_LOADER_KEYS__ || {}; // eslint-disable-line no-underscore-dangle, no-undef
   if (styleRefs[key]) {
     // https://github.com/webpack-contrib/style-loader/pull/322
     // https://github.com/webpack-contrib/style-loader/issues/321
@@ -10,4 +15,4 @@ module.exports = function filterCriticalCss(css) {
   }
 
   return css;
-};
+}

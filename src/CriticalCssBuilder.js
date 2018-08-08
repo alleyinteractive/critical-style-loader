@@ -3,6 +3,10 @@ import md5 from 'blueimp-md5';
 export default class CriticalCssBuilder {
   map = {};
 
+  /**
+   *
+   * @param styles
+   */
   addStyles = (styles) => {
     const css = styles && 'function' === typeof styles.getContent ?
       styles.getContent() :
@@ -18,6 +22,10 @@ export default class CriticalCssBuilder {
     }
   };
 
+  /**
+   *
+   * @returns {string}
+   */
   getEncodedMap = () => {
     const mapAbbreviated = Object
       .keys(this.map)
@@ -29,5 +37,9 @@ export default class CriticalCssBuilder {
     return JSON.stringify(mapAbbreviated);
   };
 
+  /**
+   *
+   * @returns {string}
+   */
   getCss = () => Object.values(this.map).join('');
 }

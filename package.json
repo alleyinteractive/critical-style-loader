@@ -15,9 +15,10 @@
     "lib"
   ],
   "scripts": {
-    "build": "babel src --out-dir lib",
+    "build": "rimraf lib && babel src --out-dir lib",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --color src"
+    "lint": "eslint --color src",
+    "prepublish": "npm run-script build"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,7 @@
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
@@ -54,6 +56,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.8.2",
     "prop-types": "^15.6.1",
-    "react": "^16.4.0"
+    "react": "^16.4.0",
+    "rimraf": "^2.6.2"
   }
 }
