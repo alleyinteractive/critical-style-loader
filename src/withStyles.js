@@ -1,6 +1,12 @@
 import React from 'react';
 import StyleContext from './styleContext';
 
+/**
+ * Create a HoC that will log each CSS module used by a component.
+ *
+ * @param {object[]} styles - A collection of CSS module exports
+ * @returns {function} - React component
+ */
 function withStyles(...styles) {
   return function wrapWithStyles(WrappedComponent) {
     const StyleLogger = (props) => {
@@ -8,7 +14,7 @@ function withStyles(...styles) {
         process.release &&
         'node' === process.release.name;
 
-      //
+      // style-loader will handle adding styles in the browser.
       if (! isServer) {
         return <WrappedComponent {...props} />;
       }

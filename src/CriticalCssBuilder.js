@@ -1,13 +1,16 @@
 import md5 from 'blueimp-md5';
 
+/**
+ * A container for critical path CSS.
+ */
 export default class CriticalCssBuilder {
   map = {};
 
   /**
-   *
-   * @param styles
+   * Add a CSS module's css to the map.
+   * @param {object} styles - A CSS module export.
    */
-  addStyles = (styles) => {
+  addCss = (styles) => {
     const css = styles && 'function' === typeof styles.getCss ?
       styles.getCss() :
       false;
@@ -23,22 +26,25 @@ export default class CriticalCssBuilder {
   };
 
   /**
+   * Encode the map to be rendered in a response. Map values are removed for
+   * simplicity, because we only need to check that a key exists to know a
+   * particular CSS module has been rendered as critical css.
    *
    * @returns {string}
    */
   getEncodedMap = () => {
-    const mapAbbreviated = Object
+    const mapSimplified = Object
       .keys(this.map)
       .reduce((acc, key) => ({
         ...acc,
         [key]: true,
       }), {});
 
-    return JSON.stringify(mapAbbreviated);
+    return JSON.stringify(mapSimplified);
   };
 
   /**
-   *
+   * Get all CSS as a string.
    * @returns {string}
    */
   getCss = () => Object.values(this.map).join('');
