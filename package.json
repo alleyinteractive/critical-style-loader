@@ -15,8 +15,9 @@
     "lib"
   ],
   "scripts": {
-    "build": "",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --out-dir lib",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --color src"
   },
   "repository": {
     "type": "git",
@@ -51,6 +52,8 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.8.2"
+    "eslint-plugin-react": "^7.8.2",
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0"
   }
 }
