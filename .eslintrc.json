@@ -11,21 +11,11 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react",
-    "jest"
+    "react"
   ],
   "env": {
     "es6": true,
-    "node": true,
-    "jest/globals": true
-  },
-  "settings": {
-    "import/resolver": {
-      "babel-module": {}
-    }
-  },
-  "globals": {
-    "jQuery": false
+    "node": true
   },
   "rules": {
     "indent": [2, 2, {"SwitchCase": 1}],
@@ -73,12 +63,6 @@
     "import/no-named-as-default-member": [0],
     "import/no-extraneous-dependencies": [0],
     "import/no-unresolved": [0],
-    "import/extensions": [0],
-    "jasmine/no-focused-tests": [1],
-    "jasmine/no-disabled-tests": [1],
-    "jasmine/missing-expect": [2],
-    "jasmine/valid-expect": [2],
-    "jasmine/no-global-setup": [2],
-    "jasmine/no-expect-in-setup-teardown": [2]
+    "import/extensions": [0]
   }
 }
