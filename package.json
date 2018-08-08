@@ -18,7 +18,7 @@
     "build": "rimraf lib && babel src --out-dir lib",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --color src",
-    "prepublish": "npm run-script build"
+    "prepare": "npm run-script build"
   },
   "repository": {
     "type": "git",
