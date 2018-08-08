@@ -1,4 +1,5 @@
 import md5 from 'blueimp-md5';
+import { GLOBAL_HOOK } from './constants';
 
 /**
  * A container for critical path CSS.
@@ -40,7 +41,7 @@ export default class CriticalCssBuilder {
         [key]: true,
       }), {});
 
-    return JSON.stringify(mapSimplified);
+    return `window.${GLOBAL_HOOK} = ${JSON.stringify(mapSimplified)}`;
   };
 
   /**
