@@ -8,8 +8,8 @@ export default class CriticalCssBuilder {
    * @param styles
    */
   addStyles = (styles) => {
-    const css = styles && 'function' === typeof styles.getContent ?
-      styles.getContent() :
+    const css = styles && 'function' === typeof styles.getCss ?
+      styles.getCss() :
       false;
 
     if (! css) {
