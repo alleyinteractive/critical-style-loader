@@ -31,7 +31,7 @@ module.exports.pitch = function prepareModule(request) {
       module.exports = content.locals;
     }
 
-    // Foo
+    // Provide getter for raw CSS.
     module.exports.getCss = function() {
       return content.toString();
     };
