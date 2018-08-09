@@ -1,5 +1,5 @@
 {
-  "name": "critical-css-style-loader",
+  "name": "@alleyinteractive/critical-css-style-loader",
   "version": "1.0.0",
   "description": "A webpack loader for rendering critical path CSS on the server with utilities to avoid client side style-loader style duplications.",
   "keywords": [
