@@ -9,6 +9,7 @@ export default class CriticalCssBuilder {
 
   /**
    * Add a CSS module's css to the map.
+   *
    * @param {object} styles - A CSS module export.
    */
   addCss = (styles) => {
@@ -46,6 +47,7 @@ export default class CriticalCssBuilder {
 
   /**
    * Get all CSS as a string.
+   *
    * @returns {string}
    */
   getCss = () => Object.values(this.map).join('');

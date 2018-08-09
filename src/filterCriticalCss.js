@@ -16,9 +16,9 @@ module.exports = function filterCriticalCss(css) {
   const styleRefs = window[GLOBAL_HOOK] || {}; // eslint-disable-line no-undef
   if (styleRefs[key]) {
     // There is an issue in style loader where the optional transform function
-    // is not called if a module was skipped, but then later is added with HMR.
+    // is not called if a module was skipped but then later is added with HMR.
     // This causes HMR to break for any critical path css. To get around that
-    // temporarily, we return a non falsy value, so that HMR can pick up
+    // temporarily we return a non falsy value, so that HMR can pick up
     // changes, but the value won't have affect on styles in the browser.
 
     // @see https://github.com/webpack-contrib/style-loader/issues/321
