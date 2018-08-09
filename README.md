@@ -98,7 +98,7 @@ app.use((req, res) => {
 app.listen();
 ```
 
-### html.ejs
+### app.ejs
 ```js
 <!doctype html>
 <html lang="en">
@@ -115,7 +115,7 @@ app.listen();
 </html>
 ```
 
-### client.js
+### components/app.js
 ```js
 import React from 'react';
 import { withStyles } from 'critical-css-style-loader/lib';
@@ -127,4 +127,16 @@ const App = () => (
 
 const wrapWithStyles = withStyles(styles);
 export default wrapWithStyles(App);
+```
+
+### client.js
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/app';
+
+ReactDOM.hydrate(
+  <App />,
+  document.getElementById('root')
+);
 ```
