@@ -1,6 +1,6 @@
 {
   "name": "critical-style-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A webpack loader for rendering critical path CSS on the server with utilities to avoid client side style-loader style duplications.",
   "keywords": [
     "webpack",
