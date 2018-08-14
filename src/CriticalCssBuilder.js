@@ -13,18 +13,21 @@ export default class CriticalCssBuilder {
    * @param {object} styles - A CSS module export.
    */
   addCss = (styles) => {
-    const css = styles && 'function' === typeof styles.getCss ?
+    const cssModules = styles && 'function' === typeof styles.getCss ?
       styles.getCss() :
       false;
 
-    if (! css) {
+    if (! cssModules) {
       return;
     }
 
-    const key = md5(css);
-    if (! this.map[key]) {
-      this.map[key] = css;
-    }
+    (cssModules || []).forEach((module) => {
+      const [css] = module;
+      const key = md5(css);
+      if (! this.map[key]) {
+        this.map[key] = css;
+      }
+    });
   };
 
   /**
