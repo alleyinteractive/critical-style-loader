@@ -1,5 +1,5 @@
 {
-  "name": "@alleyinteractive/critical-css-style-loader",
+  "name": "critical-style-loader",
   "version": "1.0.0",
   "description": "A webpack loader for rendering critical path CSS on the server with utilities to avoid client side style-loader style duplications.",
   "keywords": [
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alleyinteractive/critical-css-style-loader.git"
+    "url": "git+https://github.com/alleyinteractive/critical-style-loader.git"
   },
   "author": "Alley (alley.co)",
   "contributors": [
@@ -31,9 +31,9 @@
   ],
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/alleyinteractive/critical-css-style-loader/issues"
+    "url": "https://github.com/alleyinteractive/critical-style-loader/issues"
   },
-  "homepage": "https://github.com/alleyinteractive/critical-css-style-loader#readme",
+  "homepage": "https://github.com/alleyinteractive/critical-style-loader#readme",
   "engine": {
     "node": "8",
     "npm": "6"

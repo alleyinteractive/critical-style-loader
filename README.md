@@ -1,4 +1,4 @@
-# Critical CSS Style Loader
+# Critical Style Loader
 
 Dynamically generate critical path css by gathering all imported CSS modules
 used during a SSR request. Obtain the resulting CSS as a string to be rendered
@@ -12,7 +12,7 @@ style-loader handled CSS that has been pre-rendered as critical CSS.
 - https://github.com/shuboc/critical-css-style-loader
 
 ## Install
-`npm install @alleyinteractive/critical-css-style-loader`
+`npm install critical-style-loader`
 
 ## Usage
 ### webpack.server.js
@@ -24,7 +24,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           {
-            loader: '@alleyinteractive/critical-css-style-loader',
+            loader: 'critical-style-loader',
           },
           {
             loader: 'css-loader',
@@ -50,7 +50,7 @@ module.exports = {
           {
             loader: 'style-loader',
             options: {
-              transform: 'node_modules/@alleyinteractive/critical-css-style-loader/lib/filterCriticalCss.js',
+              transform: 'node_modules/critical-style-loader/lib/filterCriticalCss.js',
             },
           },
           {
@@ -71,10 +71,7 @@ module.exports = {
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import {
-  StyleContext,
-  CriticalCssBuilder,
-} from '@alleyinteractive/critical-css-style-loader/lib';
+import { StyleContext, CriticalCssBuilder } from 'critical-style-loader/lib';
 import App from 'components/app';
 
 const app = express();
@@ -118,7 +115,7 @@ app.listen();
 ### components/app.js
 ```js
 import React from 'react';
-import { withStyles } from 'critical-css-style-loader/lib';
+import { withStyles } from 'critical-style-loader/lib';
 import styles from './app.css';
 
 const App = () => (
