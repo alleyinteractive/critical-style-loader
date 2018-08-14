@@ -1,5 +1,5 @@
 {
-  "name": "critical-css-style-loader",
+  "name": "@alleyinteractive/critical-css-style-loader",
   "version": "1.0.0",
   "description": "A webpack loader for rendering critical path CSS on the server with utilities to avoid client side style-loader style duplications.",
   "keywords": [
@@ -8,14 +8,17 @@
     "react",
     "isomorphic",
     "universal",
-    "critical css",
+    "critical css"
   ],
-  "main": "lib/index.js",
+  "main": "lib/loader.js",
   "files": [
     "lib"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rimraf lib && babel src --out-dir lib",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --color src",
+    "prepare": "npm run-script build"
   },
   "repository": {
     "type": "git",
@@ -30,5 +33,29 @@
   "bugs": {
     "url": "https://github.com/alleyinteractive/critical-css-style-loader/issues"
   },
-  "homepage": "https://github.com/alleyinteractive/critical-css-style-loader#readme"
+  "homepage": "https://github.com/alleyinteractive/critical-css-style-loader#readme",
+  "engine": {
+    "node": "8",
+    "npm": "6"
+  },
+  "dependencies": {
+    "blueimp-md5": "^2.10.0",
+    "loader-utils": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2",
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "rimraf": "^2.6.2"
+  }
 }
