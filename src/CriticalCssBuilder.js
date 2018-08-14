@@ -22,7 +22,7 @@ export default class CriticalCssBuilder {
     }
 
     (cssModules || []).forEach((module) => {
-      const [css] = module;
+      const [,css] = module;
       const key = md5(css);
       if (! this.map[key]) {
         this.map[key] = css;
