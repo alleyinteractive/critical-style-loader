@@ -33,7 +33,7 @@ module.exports.pitch = function prepareModule(request) {
 
     // Provide getter for raw CSS.
     module.exports.getCss = function() {
-      return content.toString();
+      return content;
     };
   `;
 };
