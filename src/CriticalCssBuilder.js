@@ -1,22 +1,11 @@
+import hashCode from './hashCode';
+import { GLOBAL_HOOK } from './constants';
+
 /**
  * A container for critical path CSS.
  */
 export default class CriticalCssBuilder {
   map = {};
-
-  /* eslint-disable no-bitwise */
-  hashCode = (string) => {
-    let hash = 0;
-    let chr;
-
-    for (let i = 0; i < string.length; i += 1) {
-      chr = string.charCodeAt(i);
-      hash = ((hash << 5) - hash) + chr;
-      hash |= 0; // Convert to 32bit integer
-    }
-    return hash;
-  }
-  /* eslint-enable */
 
   /**
    * Add a CSS module's css to the map.
@@ -33,8 +22,9 @@ export default class CriticalCssBuilder {
     }
 
     (cssModules || []).forEach((module) => {
-      const [,css] = module;
-      const key = this.hashCode(css);
+      const [, css] = module;
+      const key = hashCode(css);
+
       if (! this.map[key]) {
         this.map[key] = css;
       }
@@ -56,7 +46,7 @@ export default class CriticalCssBuilder {
         [key]: true,
       }), {});
 
-    return `window.${__CRITICAL_CSS_STYLE_LOADER_KEYS__} = ${JSON.stringify(mapSimplified)}`; // eslint-disable-line no-undef, max-len
+    return `window.${GLOBAL_HOOK} = ${JSON.stringify(mapSimplified)}`; // eslint-disable-line no-undef, max-len
   };
 
   /**
