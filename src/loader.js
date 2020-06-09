@@ -33,7 +33,6 @@ module.exports.pitch = function prepareModule(request) {
         var id = hashCode(css);
 
         if (window.${GLOBAL_HOOK} && window.${GLOBAL_HOOK}[id]) {
-          console.log('prerendered!', css, id);
           return true;
         }
 
