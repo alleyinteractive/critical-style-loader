@@ -24,19 +24,6 @@ module.exports.pitch = function prepareModule(request) {
     var content = require(${path});
     var hashCode = require('critical-style-loader/lib/hashCode.js');
 
-    // function hashCode(hashString) {
-    //   var hash = 0;
-    //   var chr;
-
-    //   for (var i = 0; i < hashString.length; i += 1) {
-    //     chr = hashString.charCodeAt(i);
-    //     hash = (hash << 5) - hash + chr;
-    //     hash |= 0; // Convert to 32bit integer
-    //   }
-
-    //   return hash;
-    // }
-
     if (
       'undefined' !== typeof window &&
       'undefined' !== typeof document
