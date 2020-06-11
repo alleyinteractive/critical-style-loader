@@ -1,4 +1,5 @@
 const loaderUtils = require('loader-utils');
+const { GLOBAL_HOOK } = require('./constants');
 
 /**
  * Our loader callback is empty, because we want to short circuit the process by
@@ -20,20 +21,45 @@ module.exports.pitch = function prepareModule(request) {
 
   const path = loaderUtils.stringifyRequest(this, `!!${request}`);
   return `
-    let content = require(${path});
+    var content = require(${path});
+    var hashCode = require('critical-style-loader/lib/hashCode.js');
 
-    if (typeof content === 'string') {
-      content = [[module.id, content, '']];
+    if (
+      'undefined' !== typeof window &&
+      'undefined' !== typeof document
+    ) {
+      var preRendered = content.some(function(module) {
+        var css = module[1];
+        var id = hashCode(css);
+
+        if (window.${GLOBAL_HOOK} && window.${GLOBAL_HOOK}[id]) {
+          return true;
+        }
+
+        return false;
+      });
+
+      if (preRendered) {
+        module.exports = '/* CSS output skipped for ' +
+          module.id +
+          ' prerendered server-side */';
+      } else {
+        module.exports = content;
+      }
+    } else {
+      if (typeof content === 'string') {
+        content = [[module.id, content, '']];
+      }
+
+      // Export CSS Modules
+      if (content.locals) {
+        module.exports = content.locals;
+      }
+
+      // Provide getter for raw CSS.
+      module.exports.getCss = function() {
+        return content;
+      };
     }
-
-    // Export CSS Modules
-    if (content.locals) {
-      module.exports = content.locals;
-    }
-
-    // Provide getter for raw CSS.
-    module.exports.getCss = function() {
-      return content;
-    };
   `;
 };

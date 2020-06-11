@@ -1,4 +1,4 @@
-import md5 from 'blueimp-md5';
+import hashCode from './hashCode';
 import { GLOBAL_HOOK } from './constants';
 
 /**
@@ -22,8 +22,9 @@ export default class CriticalCssBuilder {
     }
 
     (cssModules || []).forEach((module) => {
-      const [,css] = module;
-      const key = md5(css);
+      const [, css] = module;
+      const key = hashCode(css);
+
       if (! this.map[key]) {
         this.map[key] = css;
       }
@@ -45,7 +46,7 @@ export default class CriticalCssBuilder {
         [key]: true,
       }), {});
 
-    return `window.${GLOBAL_HOOK} = ${JSON.stringify(mapSimplified)}`;
+    return `window.${GLOBAL_HOOK} = ${JSON.stringify(mapSimplified)}`; // eslint-disable-line no-undef, max-len
   };
 
   /**
